@@ -19,6 +19,11 @@
     <div v-if="answer" class="output-container">
         <h1 dir="rtl">{{ answer }}</h1>
     </div>
+    <footer>
+        <h1>By Shiran Abir</h1>
+        <h2 dir="rtl">יש תקלה? יש לכם רעיון לתוכנה נוספת?</h2>
+        <h2 dir="rtl">דברו איתי - shirabir@openu.ac.il / shirkiabir@gmail.com</h2>
+    </footer>
 </div>
 </template>
 <script>
@@ -30,12 +35,13 @@ export default{
   data() {
     return{
         answer: null,
-        checksAmount: 0,
-        price:0,
+        checksAmount: null,
+        price:null,
     }
 },
 methods:{
     generateChecks(){
+        if (this.checksAmount <= 0||this.price <= 0) return
         let paymentPerCheck = this.price/this.checksAmount
         if (this.price%this.checksAmount == 0){
             this.answer = 'יש להכין ' + this.checksAmount + ' המחאות, כל אחת על סך ' + paymentPerCheck + ' שקלים ' 

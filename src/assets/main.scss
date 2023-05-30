@@ -80,3 +80,22 @@
     }
   }
 }
+
+footer{
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #adddeb;
+  color: #1f1f1f;
+  margin-top: 10px;
+  text-align: center;
+
+  h1{
+    font-size: 1.2rem;
+    background-color: #6fabbd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  h2{
+    font-size: 1.1rem;
+    background-color: #6fabbd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
