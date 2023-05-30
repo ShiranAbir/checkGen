@@ -2,7 +2,6 @@
   "name": "checkgen",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://shiranabir.github.io/checkGen",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
