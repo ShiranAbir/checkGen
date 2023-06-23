@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+@media (min-width: 540px) {
+  .generator-container{
+    max-width:500px;
+  }
+}
+
 .generator-container{
 
   .title{
@@ -11,7 +17,7 @@
     background-color: #b9d9e3;
   }
   padding: 5px;
-  width: 500px;
+  width:100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -58,7 +64,7 @@
         -webkit-user-select: none;
         touch-action: manipulation;
         vertical-align: baseline;
-        width: 100px;
+        max-width: 100px;
 
         &:hover,
         :focus {
