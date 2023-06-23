@@ -63,7 +63,8 @@ export default{
 },
 methods:{
     generateChecks(){
-        let {checksAmount,price,isStarted,endDate,startDate} = this.info
+        let {checksAmount,price,endDate,startDate} = this.info
+        if(!checksAmount ||!price || !endDate) return
         const start = new Date(startDate);
         const end = new Date(endDate);
         let paymentPerCheck = price/checksAmount
@@ -75,8 +76,40 @@ methods:{
             firstPayment = Math.floor(paymentPerCheck)
             samePriceChecksAmount = checksAmount - 1
             lastPayment = price - (firstPayment * samePriceChecksAmount)
-        }
-        if (!startDate) {
+            if (!startDate) {
+            let dates = this.getAllMonths(new Date(),end)
+            let lastPayDate = ''
+            lastPayDate += dates.pop()
+            lastPayDate += ` - ${lastPayment} ש"ח\n`
+            let payDate = ''
+            dates.forEach(date => payDate += `${date} - ${firstPayment} ש"ח\n`)
+            
+            this.answer = `תלמיד/ה יקר/ה,
+
+סה"כ לתשלום: ${price} ש"ח.
+
+פירוט הצ'קים:
+
+${payDate}${lastPayDate}`
+        }else{
+            let dates = this.getAllMonths(start,end)
+            let lastPayDate = ''
+            lastPayDate += dates.pop()
+            lastPayDate += ` - ${lastPayment} ש"ח\n`
+            let payDate = ''
+            dates.forEach(date => payDate += `${date} - ${firstPayment} ש"ח\n`)
+            
+            this.answer = `תלמיד/ה יקר/ה,
+
+סה"כ לתשלום: ${price} ש"ח.
+
+פירוט הצ'קים:
+
+${payDate}${lastPayDate}`
+        } 
+            
+        }else{
+            if (!startDate) {
             let dates = this.getAllMonths(new Date(),end)
             let payDate = ''
             dates.forEach(date => payDate += `${date} - ${paymentPerCheck} ש"ח\n`)
@@ -98,7 +131,9 @@ ${payDate}`
 פירוט הצ'קים:
 
 ${payDate}`
-        }        
+        } 
+        }
+               
     },
     resetInfo(){
         this.info = {
