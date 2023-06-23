@@ -66,7 +66,7 @@ export default{
 methods:{
     generateChecks(){
         let {checksAmount,price,endDate,startDate} = this.info
-        if(!checksAmount ||!price || !endDate) return
+        if(!checksAmount ||!price || !endDate) return alert("יש למלא את כל הפרטים!")
         const start = new Date(startDate);
         const end = new Date(endDate);
         let paymentPerCheck = price/checksAmount
@@ -158,7 +158,7 @@ ${payDate}`
         }
         months.pop()
         months = months.slice(0, parseInt(this.info.checksAmount))
-        if (this.info.checksAmount>months.length) return
+        if (this.info.checksAmount>months.length) return alert(`כמות הצ'קים המקסימלית היא ${months.length} צ'קים!`)
         return this.formatDates(months);
     },
     formatDates(dates){
