@@ -19,7 +19,7 @@
             </select>
             <label for="check-amount">?הקורס התחיל</label>
         </div>
-        <div v-if="!info.isStarted" class="input-holder">
+        <div v-show="!info.isStarted" class="input-holder">
             <input v-model="info.startDate" type="date">
             <label for="check-amount">תאריך פתיחה</label>
         </div>
@@ -93,6 +93,7 @@ methods:{
 פירוט הצ'קים:
 
 ${payDate}${lastPayDate}`
+
         }else{
             let dates = this.getAllMonths(start,end)
             let lastPayDate = ''
@@ -166,6 +167,17 @@ ${payDate}`
         return payDates
     }
 
+},
+watch:{
+    info: {
+        handler(newValue){
+            console.log('here');
+            if (newValue.isStarted === true){
+                this.info.startDate = null
+            }
+        },
+        deep: true
+    }
 }
 }
 </script>

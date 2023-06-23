@@ -1,7 +1,7 @@
 *{
   box-sizing: border-box;
 }
-body{
+main{
   height: 100%;
 }
 @media (min-width: 540px) {
@@ -12,7 +12,6 @@ body{
 
 @media (max-width: 540px) {
   .generator-container{    
-    height: 100%;
     .header-container{     
       
       .input-holder{
@@ -24,7 +23,7 @@ body{
 }
 
 .generator-container{
-
+  height: 100%;
   .title{
     margin: auto;
     margin-bottom: 25px;
