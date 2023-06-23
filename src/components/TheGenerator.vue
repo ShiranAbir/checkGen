@@ -2,6 +2,7 @@
 <div class="generator-container">
     <h1 class="title">מחשבון המחאות</h1>
     <div class="header-container">
+        <h1 class="section_title">פרטי התשלום</h1>
         <div class="input-holder">
             <input v-model="info.checksAmount" id="check-amount" type="number">
             <label for="check-amount">מספר צ'קים רצוי</label>
@@ -10,6 +11,7 @@
             <input v-model="info.price" id="price" type="number">
             <label for="check-amount">סה"כ לתשלום</label>
         </div>
+        <h1 class="section_title">פרטי הקורס</h1>
         <div class="input-holder">
             <select v-model="info.isStarted" id="isStarted">
                 <option :value=true>כן</option>
@@ -19,11 +21,11 @@
         </div>
         <div v-if="!info.isStarted" class="input-holder">
             <input v-model="info.startDate" type="date">
-            <label for="check-amount">תאריך פתיחת הקורס</label>
+            <label for="check-amount">תאריך פתיחה</label>
         </div>
         <div class="input-holder">
             <input v-model="info.endDate" type="date">
-            <label for="check-amount">תאריך סיום הקורס</label>
+            <label for="check-amount">תאריך סיום</label>
         </div>
         <div class="btn-holder">
             <button @click="generateChecks()">
